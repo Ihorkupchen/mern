@@ -15,7 +15,7 @@ router.post (
             const baseUrl = config.get('baseUrl');
             const from = req.body;
             const code = shortid.generate();
-            const existing = await  Link.findOne({...from});
+            const existing = await  Link.findOne({...from, owner: req.user.userId});
             if (existing) {
                 return res.json({link: existing})
             }

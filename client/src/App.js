@@ -5,13 +5,16 @@ import {BrowserRouter} from 'react-router-dom'
 import {useAuth} from "./hooks/auth.hook";
 import {authContext} from "./context/context";
 import {Navbar} from "./components/Navbar";
+import {Loader} from "./components/Loader";
 
 
 function App() {
-    const {login, logout, token, tokenId} = useAuth()
+    const {login, logout, token, tokenId, ready} = useAuth()
     const isAuthenticated = !!token
     const routes = useRoutes(isAuthenticated);
-
+    if(!ready){
+        return <Loader/>
+    }
     return (
         <authContext.Provider value={{login, logout, token, tokenId, isAuthenticated}}>
             <BrowserRouter>

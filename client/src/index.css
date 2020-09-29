@@ -25,4 +25,10 @@
 .loader {
     display: flex;
     justify-content: center;
+    padding-top: 20px;
+}
+
+.empty-list {
+    display: flex;
+    justify-content: center;
 }

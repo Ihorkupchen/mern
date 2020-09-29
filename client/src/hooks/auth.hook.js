@@ -5,6 +5,7 @@ const currentSession = 'currentSession';
 export const useAuth = () => {
     const [token, setToken] = useState(null);
     const [userId, setUserId] = useState(null);
+    const [ready, setReady] = useState(false);
 
 
 
@@ -28,8 +29,9 @@ export const useAuth = () => {
         if(data && data.token){
             login(data.token, data.userId)
         }
+        setReady(true)
     },[login])
 
 
-    return {login, logout, token, userId}
+    return {login, logout, token, userId, ready}
 }

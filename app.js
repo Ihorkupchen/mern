@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json({extended: true}));
 
 
-
+app.use('/t/', require('./routes/redirectRouter'));
 app.use('/api/auth', require('./routes/authRouter'));
 app.use('/api/link', require('./routes/linkRouter'));
 
